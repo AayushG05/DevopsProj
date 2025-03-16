@@ -1,0 +1,187 @@
+Microsoft Windows [Version 10.0.26100.3194]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\DevopsProject>git --version
+git version 2.48.1.windows.1
+
+C:\DevopsProject>git remote add origin https://github.com/AayushG05/DevopsProj.git
+fatal: not a git repository (or any of the parent directories): .git
+
+C:\DevopsProject>git remote add origin https://github.com/AayushG05/DevopsProj
+fatal: not a git repository (or any of the parent directories): .git
+
+C:\DevopsProject>git init
+Initialized empty Git repository in C:/DevopsProject/.git/
+
+C:\DevopsProject>git remote add origin https://github.com/AayushG05/DevopsProj.git
+
+C:\DevopsProject>git add .
+
+C:\DevopsProject>git commit -m
+error: switch `m' requires a value
+
+C:\DevopsProject>git commit -m "Initial commit - Blog setup"
+Author identity unknown
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: unable to auto-detect email address (got 'aayus@LAPTOP-RMPJL2PD.(none)')
+
+C:\DevopsProject>git config --global user.name "Aayush Gupta"
+
+C:\DevopsProject>git config --global user.email "your-email@example.com"
+
+C:\DevopsProject>git config --global --list
+user.name=Aayush Gupta
+user.email=your-email@example.com
+
+C:\DevopsProject>git commit -m "Initial commit - Blog setup"
+[master (root-commit) d081076] Initial commit - Blog setup
+ 3 files changed, 81 insertions(+)
+ create mode 100644 index.html
+ create mode 100644 script.js
+ create mode 100644 style.css
+
+C:\DevopsProject>git branch -M main
+
+C:\DevopsProject>git push -u origin main
+info: please complete authentication in your browser...
+To https://github.com/AayushG05/DevopsProj.git
+ ! [rejected]        main -> main (fetch first)
+error: failed to push some refs to 'https://github.com/AayushG05/DevopsProj.git'
+hint: Updates were rejected because the remote contains work that you do not
+hint: have locally. This is usually caused by another repository pushing to
+hint: the same ref. If you want to integrate the remote changes, use
+hint: 'git pull' before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+C:\DevopsProject>git pull origin main --rebase
+remote: Enumerating objects: 12, done.
+remote: Counting objects: 100% (12/12), done.
+remote: Compressing objects: 100% (11/11), done.
+remote: Total 12 (delta 2), reused 0 (delta 0), pack-reused 0 (from 0)
+Unpacking objects: 100% (12/12), 4.61 KiB | 96.00 KiB/s, done.
+From https://github.com/AayushG05/DevopsProj
+ * branch            main       -> FETCH_HEAD
+ * [new branch]      main       -> origin/main
+Auto-merging index.html
+CONFLICT (add/add): Merge conflict in index.html
+Auto-merging script.js
+CONFLICT (add/add): Merge conflict in script.js
+Auto-merging style.css
+CONFLICT (add/add): Merge conflict in style.css
+error: could not apply d081076... Initial commit - Blog setup
+hint: Resolve all conflicts manually, mark them as resolved with
+hint: "git add/rm <conflicted_files>", then run "git rebase --continue".
+hint: You can instead skip this commit: run "git rebase --skip".
+hint: To abort and get back to the state before "git rebase", run "git rebase --abort".
+hint: Disable this message with "git config set advice.mergeConflict false"
+Could not apply d081076... Initial commit - Blog setup
+
+C:\DevopsProject>git push origin main
+To https://github.com/AayushG05/DevopsProj.git
+ ! [rejected]        main -> main (non-fast-forward)
+error: failed to push some refs to 'https://github.com/AayushG05/DevopsProj.git'
+hint: Updates were rejected because a pushed branch tip is behind its remote
+hint: counterpart. If you want to integrate the remote changes, use 'git pull'
+hint: before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+C:\DevopsProject>git add index.html
+warning: in the working copy of 'index.html', LF will be replaced by CRLF the next time Git touches it
+
+C:\DevopsProject>git rebase --continue
+script.js: needs merge
+style.css: needs merge
+You must edit all merge conflicts and then
+mark them as resolved using git add
+
+C:\DevopsProject>git add style.css
+warning: in the working copy of 'style.css', LF will be replaced by CRLF the next time Git touches it
+
+C:\DevopsProject>git add script.js
+warning: in the working copy of 'script.js', LF will be replaced by CRLF the next time Git touches it
+
+C:\DevopsProject>git rebase --continue
+[detached HEAD 84043db] Initial commit - Blog setup git rebase --continue
+ 3 files changed, 81 insertions(+), 81 deletions(-)
+Successfully rebased and updated refs/heads/main.
+
+C:\DevopsProject>git push origin main --force
+Enumerating objects: 9, done.
+Counting objects: 100% (9/9), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (5/5), 952 bytes | 476.00 KiB/s, done.
+Total 5 (delta 2), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+To https://github.com/AayushG05/DevopsProj.git
+   bd960d3..84043db  main -> main
+
+C:\DevopsProject>git add style.css
+
+C:\DevopsProject>git commit -m "Updated styles in style.css"
+On branch main
+nothing to commit, working tree clean
+
+C:\DevopsProject>git status
+On branch main
+nothing to commit, working tree clean
+
+C:\DevopsProject>git status
+On branch main
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   style.css
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+C:\DevopsProject>git add style.css
+warning: in the working copy of 'style.css', LF will be replaced by CRLF the next time Git touches it
+
+C:\DevopsProject>git commit -m "Updated styles in style.css"
+[main ab7f1fd] Updated styles in style.css
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+C:\DevopsProject>git push origin main
+To https://github.com/AayushG05/DevopsProj.git
+ ! [rejected]        main -> main (fetch first)
+error: failed to push some refs to 'https://github.com/AayushG05/DevopsProj.git'
+hint: Updates were rejected because the remote contains work that you do not
+hint: have locally. This is usually caused by another repository pushing to
+hint: the same ref. If you want to integrate the remote changes, use
+hint: 'git pull' before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+C:\DevopsProject>git pull origin main --rebase
+remote: Enumerating objects: 5, done.
+remote: Counting objects: 100% (5/5), done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 3 (delta 2), reused 0 (delta 0), pack-reused 0 (from 0)
+Unpacking objects: 100% (3/3), 930 bytes | 71.00 KiB/s, done.
+From https://github.com/AayushG05/DevopsProj
+ * branch            main       -> FETCH_HEAD
+   84043db..bf8498b  main       -> origin/main
+Successfully rebased and updated refs/heads/main.
+
+C:\DevopsProject>git push origin main
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 306 bytes | 153.00 KiB/s, done.
+Total 3 (delta 2), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+To https://github.com/AayushG05/DevopsProj.git
+   bf8498b..c470922  main -> main
+
+C:\DevopsProject>
