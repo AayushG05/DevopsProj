@@ -1,25 +1,24 @@
-name: Deploy Blog to GitHub Pages
+name: Deploy to GitHub Pages
 
 on:
   push:
     branches:
-      - main  # Trigger deployment on push to the main branch
-
+      - main  
 jobs:
   deploy:
-    runs-on: ubuntu-latest
-
+    runs-on: ubuntu-latest  
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+        
+      - name: Install HTML Validator
+        run: npm install -g htmlhint
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
+      - name: Validate HTML
+        run: htmlhint "/*.html"
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.TOKEN }}  
           publish_dir: ./
